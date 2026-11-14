@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<!-- Sample Nmap XML scan of localhost (127.0.0.1), recorded for tests.
+     Synthetic sample — no live scan was run to produce this file. CI uses
+     it so the parser can be tested without nmap installed. The open
+     PostgreSQL port (5432) is deliberately the "Critical" example for the
+     Day 4 risk-rating rules: a database port open on the scanned host. -->
+<nmaprun scanner="nmap" args="nmap -sV -oX data/sample_nmap.xml 127.0.0.1" start="1792123456" startstr="Sat Nov 14 15:00:00 2026" version="7.94" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="5" services="22,80,443,5000,5432"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<host starttime="1792123456" endtime="1792123460"><status state="up" reason="localhost-response"/>
+<address addr="127.0.0.1" addrtype="ipv4"/>
+<hostnames><hostname name="localhost" type="user"/></hostnames>
+<ports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" product="OpenSSH" version="9.6p1" extrainfo="Ubuntu" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" product="nginx" version="1.24.0" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="443"><state state="closed" reason="reset" reason_ttl="64"/><service name="https" method="table" conf="3"/></port>
+<port protocol="tcp" portid="5000"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" product="Werkzeug" version="3.0.1" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="5432"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="postgresql" product="PostgreSQL" version="16.1" method="probed" conf="10"/></port>
+</ports>
+<times srtt="48" rttvar="12" to="100000"/>
+</host>
+<runstats><finished time="1792123460" timestr="Sat Nov 14 15:01:00 2026" summary="Nmap done at Sat Nov 14 15:01:00 2026; 1 IP address (1 host up) scanned in 4.12 seconds" exit="success"/><hosts up="1" down="0" total="1"/></runstats>
+</nmaprun>
